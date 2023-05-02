@@ -29,7 +29,7 @@ export function hangoutLayout(
             currentConfig
         );
 
-        const hangOutMessage = hangoutFormatter(
+        const hangOutMessages = hangoutFormatter(
             currentConfig,
             commonJsonOutput,
             data
@@ -37,12 +37,12 @@ export function hangoutLayout(
 
         // return type can be string or array of string, some as result {string|string[]} it is for backward compatibility
         // where expected result is string only
-        if (!hangOutMessage.length) {
+        if (!hangOutMessages.length) {
             return '';
-        } else if (hangOutMessage.length === 1) {
-            return hangOutMessage[0];
+        } else if (hangOutMessages.length === 1) {
+            return hangOutMessages[0];
         } else {
-            return hangOutMessage;
+            return hangOutMessages;
         }
     };
 }

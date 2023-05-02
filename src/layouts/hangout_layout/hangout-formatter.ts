@@ -10,7 +10,7 @@ export const maxGoogleHangoutMessageLength = 4069;
 /**
  * @description APPLICATION: : commonJsonOutput.appName} (tyreservices/is-adapter)
  *
- * @param {IOutputMessage} commonJsonOutput
+ * @param {IOutputMessage} commonJsonOutput Common JSON output structure
  * @return {string}  {string}
  */
 function getAppName(commonJsonOutput: IOutputMessage): string {
@@ -51,15 +51,19 @@ function getEnv(
  * @param {number} maxLen
  * @return {string}  {string}
  */
-function getMainMessage(message: string, maxLen: number): string {
-    let resultMessage = '';
-    const innerPart = getMaxLengthMessage(message, maxLen);
+function getMainMessage(
+    message: string,
+    level: string,
+    maxLen: number
+): string {
+    const innerPart = getMaxLengthMessage(`${message} - ${level}`, maxLen);
 
     if (innerPart?.length) {
-        resultMessage = `Message:\`\`\`${innerPart}\`\`\``;
+        const resultMessage = `Message:\`\`\`${innerPart}\`\`\``;
+        return resultMessage;
+    } else {
+        return '';
     }
-
-    return resultMessage;
 }
 
 /**
@@ -67,7 +71,7 @@ function getMainMessage(message: string, maxLen: number): string {
  *
  * @param {string} str
  * @param {number} size
- * @return {string[]}  {string[]}
+ * @return {string[]}
  */
 function chunkSubstr(str: string, size: number): string[] {
     const numChunks = Math.ceil(str.length / size);
@@ -111,7 +115,7 @@ export function hangoutFormatter(
         ? commonJsonOutput.content
         : '';
 
-    const mainMessage = getMainMessage(message, 80);
+    const mainMessage = getMainMessage(message, commonJsonOutput.level, 80);
     messageLengthLeft = messageLengthLeft - mainMessage.length;
     //#endregion
 
