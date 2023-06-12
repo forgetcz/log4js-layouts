@@ -149,7 +149,8 @@ export function hangoutFormatter(
             EOL +
             envMessage +
             EOL +
-            oneMessage;
+            oneMessage +
+            EOL;
 
         finalResult.push(oneMessageResult);
     });
