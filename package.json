@@ -1,6 +1,6 @@
 {
   "name": "log4js-layouts",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Layouts for log4js appender",
   "homepage": "https://github.com/forgetcz/log4js-layouts/",
   "main": "./dist/src/index.js",
