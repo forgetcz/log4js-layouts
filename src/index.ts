@@ -1,4 +1,4 @@
-import { coloredConsoleLayout as coloredConsoleLayoutExport } from '../src/layouts/colored_console_layout/colored-console-layout';
+import { coloredConsoleLayout as coloredConsoleLayoutExport } from './layouts/colored-console-layout/colored-console-layout';
 import { hangoutLayout as hangoutLayoutExport } from '../src/layouts/hangout_layout/hangout-layout';
 import { IJsonLayoutConfig } from '../types/types';
 import { jsonLayout as jsonLayoutExport } from './layouts/json_layout/json-layout';

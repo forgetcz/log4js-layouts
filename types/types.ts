@@ -1,6 +1,6 @@
 import { Options } from 'serialize-error';
 import { InspectOptions } from 'util';
-import { coloredConsoleLayout as coloredConsoleLayoutExport } from '../src/layouts/colored_console_layout/colored-console-layout';
+import { coloredConsoleLayout as coloredConsoleLayoutExport } from '../src/layouts/colored-console-layout/colored-console-layout';
 import { hangoutLayout as hangoutLayoutExport } from '../src/layouts/hangout_layout/hangout-layout';
 import { jsonLayout as jsonLayoutExport } from '../src/layouts/json_layout/json-layout';
 import { environment, messageOutputType } from './json-constants';
@@ -27,7 +27,7 @@ export interface IJsonLayoutConfig {
     appName: string;
     /** @description Type of application environment */
     source: environment;
-    /** @description Object, name value pairs of this object are added to output - app name for example*/
+    /** @description Object, name value pairs of this object are added to output - app name for example */
     static?: any;
     /** @description object, where each value is a no-argument function that must return a primitive type(no object no pointer to other function). The key and the function's return value are added to the output */
     dynamic?: any;
@@ -39,7 +39,7 @@ export interface IJsonLayoutConfig {
     dateTimeFormat?: {
         /** @description Format tokens ("yyyy-MM-dd'T'HH:mm:ss.SSSXXX") */
         format: string;
-        /** @description Time zone name or offset string ('Europe/Prague',...): https://github.com/heineiuo/date-fns-format-zone/blob/master/timezone.json*/
+        /** @description Time zone name or offset string ('Europe/Prague',...): https://github.com/heineiuo/date-fns-format-zone/blob/master/timezone.jsonv */
         timeZone: string;
     };
 }
@@ -60,9 +60,9 @@ export interface outputMessage extends IOutputMessage {}
  * @interface outputMessage
  */
 export interface IOutputMessage {
-    /** @description Application name*/
+    /** @description Application name */
     appName: string;
-    /** @description Event date/time*/
+    /** @description Event date/time */
     timeStamp: string;
     /** @description Level of event */
     level: string;
@@ -102,7 +102,7 @@ export interface IDateTimeFormat {
  * @param {IJsonLayoutConfig} config     Config for json formatting
  * @return {any}                        returned value for log4js background process
  */
-export function jsonLayout(config: IJsonLayoutConfig) {
+export function jsonLayout(config: IJsonLayoutConfig): any {
     return jsonLayoutExport(config);
 }
 
@@ -111,7 +111,7 @@ export function jsonLayout(config: IJsonLayoutConfig) {
  * @param {IJsonLayoutConfig} config     Config for json formatting
  * @return {any}                        returned value for log4js background process
  */
-export function hangoutLayout(config: IJsonLayoutConfig) {
+export function hangoutLayout(config: IJsonLayoutConfig): any {
     return hangoutLayoutExport(config);
 }
 
@@ -120,6 +120,6 @@ export function hangoutLayout(config: IJsonLayoutConfig) {
  * @param {IJsonLayoutConfig} config     Config for json formatting
  * @return {any}                        returned value for log4js background process
  */
-export function coloredConsoleLayout(config: IJsonLayoutConfig) {
+export function coloredConsoleLayout(config: IJsonLayoutConfig): any {
     return coloredConsoleLayoutExport(config);
 }

@@ -2,8 +2,8 @@ import * as colors from 'colors';
 import * as lodash from 'lodash';
 import { LoggingEvent } from 'log4js';
 import * as util from 'util';
-import { defaultLevelColors } from '../../../types/json-constants';
 import { IJsonLayoutConfig, IOutputMessage } from '../../../types/types';
+import { defaultLevelColors } from '../../../types/json-constants';
 
 /**
  * @description Function for format input to colored console

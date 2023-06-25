@@ -1,8 +1,8 @@
-import { IJsonLayoutConfig } from '../../../../types/types';
 import {
     environment,
     messageOutputType,
 } from '../../../../types/json-constants';
+import { IJsonLayoutConfig } from '../../../../types/types';
 
 export const mockJsonLayoutConfig: IJsonLayoutConfig = {
     appName: 'Mock app name',
