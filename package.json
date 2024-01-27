@@ -1,0 +1,72 @@
+{
+    "name": "log4js-layouts-node-next",
+    "version": "1.0.3",
+    "description": "Layouts for log4js appender",
+    "homepage": "https://github.com/forgetcz/log4js-layouts/",
+    "main": "./dist/index.js",
+    "types": "./dist/types/types.d.ts",
+    "files": [
+        "dist",
+        "types",
+        "src"
+    ],
+    "jest": {
+        "testEnvironment": "node",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "transform": {
+            "\\.(ts|tsx)$": "ts-jest"
+        },
+        "testRegex": "/src/.*\\.(test|spec)\\.(ts|tsx|js)$",
+        "collectCoverage": true,
+        "globals": {
+            "ts-jest": {
+                "diagnostics": false
+            }
+        }
+    },
+    "scripts": {
+        "start": "node -r dotenv/config ./dist/index.js",
+        "dev": "ts-node -r dotenv/config ./src/index.ts dotenv_config_path=./env/local",
+        "lint": "eslint . --ext .js,.jsx,.ts",
+        "build": "npm run lint && rm -rf ./dist && tsc",
+        "watch": "npx tsc -w",
+        "watch-node": "nodemon --exec 'ts-node' ./src/index.ts",
+        "test": "jest",
+        "prettier": "npx prettier --write ./src/**/*.{ts,js} --fix",
+        "clean": "rm -rf ./dist && rm package-lock.json && rm -rf ./node_modules",
+        "clean_build": "npm i && npx tsc"
+    },
+    "keywords": [
+        "logging",
+        "log",
+        "log4js",
+        "node",
+        "layout"
+    ],
+    "author": "forget@seznam.cz",
+    "license": "ISC",
+    "dependencies": {
+        "colors": "^1.4.0",
+        "date-fns-tz": "^2.0.0",
+        "got": "^11.8.3",
+        "lodash": "^4.17.21",
+        "log4js-node-next": "file:../log4js-promises"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.7",
+        "@types/lodash": "^4.14.200",
+        "@types/node": "^20.8.10",
+        "@typescript-eslint/eslint-plugin": "^6.10.0",
+        "@typescript-eslint/parser": "^6.10.0",
+        "eslint": "^8.53.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "prettier": "^3.0.3",
+        "ts-jest": "^29.1.1",
+        "typescript": "^5.2.2"
+    }
+}
