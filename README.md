@@ -1,6 +1,6 @@
-# Layout appender for log4js-node
+# Layout appender for log4js-node-next
 
-This is an optional layout appender for use with [log4js-promises](https://www.npmjs.com/package/log4js-promises).
+This is an optional layout appender for use with [log4js-node-next](https://www.npmjs.com/package/log4js-node-next).
 Original source package is from : https://www.npmjs.com/package/log4js-json-layout
 
 possible layouts:
@@ -8,16 +8,10 @@ possible layouts:
 -   JSON
 -   formatted text for Google Hangouts
 
-## Configuration
-
-```bash
-npm install log4js-layouts
-```
-
 # Simple example
 
 ````bash
-npm i log4js-promises
+npm i log4js-node-next
 npm i log4js-layouts
 ```
 

@@ -1,4 +1,3 @@
-import { format } from 'date-fns-tz';
 import lodash from 'lodash';
 import { ILoggingEvent } from 'log4js-node-next';
 import { ILayoutConfig, IOutputMessage } from '../../types/types';
@@ -21,13 +20,7 @@ export function commonMessageFormatter(
 
     const outputMessage: IOutputMessage = {
         appName: currentConfig.appName,
-        timeStamp: format(
-            rawData.startTime,
-            currentConfig?.dateTimeFormat?.format as string,
-            {
-                timeZone: currentConfig.dateTimeFormat?.timeZone,
-            },
-        ),
+        timeStamp: rawData.startTime,
         level: rawData.level.levelStr,
         source: currentConfig.source,
         content: [],

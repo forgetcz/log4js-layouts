@@ -1,7 +1,7 @@
 {
     "name": "log4js-layouts",
-    "version": "2.0.3",
-    "description": "Layouts for log4js appender",
+    "version": "2.0.4",
+    "description": "Layouts for log4js-node-next",
     "homepage": "https://github.com/forgetcz/log4js-layouts",
     "main": "./dist/index.js",
     "types": "./dist/types/types.d.ts",
@@ -28,8 +28,6 @@
     "license": "ISC",
     "dependencies": {
         "colors": "^1.4.0",
-        "date-fns-tz": "^2.0.0",
-        "got": "^11.8.3",
         "lodash": "^4.17.21",
         "log4js-node-next": "^1.0.30"
     },
@@ -37,8 +35,8 @@
         "@types/jest": "^29.5.11",
         "@types/lodash": "^4.14.202",
         "@types/node": "^20.11.10",
-        "@typescript-eslint/eslint-plugin": "^6.19.1",
-        "@typescript-eslint/parser": "^6.19.1",
+        "@typescript-eslint/eslint-plugin": "^6.20.0",
+        "@typescript-eslint/parser": "^6.20.0",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-prettier": "^5.1.3",
