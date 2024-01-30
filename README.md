@@ -1,7 +1,6 @@
 # Layout appender for log4js-node
 
-Targeted as "ESNext" module
-This is used for formatting [log] events. This is an optional [layout] appender for use with [log4js](https://log4js-node.github.io/log4js-node/).
+This is an optional layout appender for use with [log4js-promises](https://www.npmjs.com/package/log4js-promises).
 Original source package is from : https://www.npmjs.com/package/log4js-json-layout
 
 possible layouts:
@@ -15,47 +14,26 @@ possible layouts:
 npm install log4js-layouts
 ```
 
-## Example
+# Simple example
 
-```javascript
-import * as log4js from 'log4js';
+````bash
+npm i log4js-promises
+npm i log4js-layouts
+```
+
+```TypeScript
+import { configureLogger, getLogger, logLevels } from 'log4js-node-next';
+import { eCoreAppenderType } from 'log4js-node-next/dist/types/enums.js';
 import { jsonLayout } from 'log4js-layouts';
 import os = require('os');
 
-const loggers: { [key: string]: log4js.Logger } = {};
-
-/**
- * @description Get logger with configuration
- */
-export default function getLogger(category?: string): log4js.Logger {
-    if (!category) {
-        category = '';
-    }
-    if (loggers[category] === undefined) {
-        configureLog4js();
-        loggers[category] = log4js.getLogger(category);
-    }
-    return loggers[category];
-}
-
-/**
- * @description Log4js configuration
- */
-function configureLog4js(): void {
-    log4js.addLayout(messageOutputType.JSON, jsonLayout);
-    log4js.addLayout(messageOutputType.HANGOUT, hangoutLayout);
+if (require.main === module) {
     log4js.addLayout(messageOutputType.COLORED_CONSOLE, coloredConsoleLayout);
 
-    const currentAppenders: Array<string> = [];
-    currentAppender.push('consoleAppender');
-
-    log4js.addLayout('json', jsonLayout); // here is a requested
-
-    log4js.configure({
+    configureLogger({
         appenders: {
             consoleAppender: {
-                type: 'console',
-                messageParam: 'msg',
+                type: eCoreAppenderType.console,
                 layout: {
                     appName: 'your-app-name',
                     source: 'source of message - development/production/...',
@@ -80,17 +58,29 @@ function configureLog4js(): void {
         },
         categories: {
             default: {
-                appenders: currentAppenders,
-                level: config.logging.logLevel.toString(),
+                appenders: [`consoleAppender`],
+                minLevel: logLevels.DEBUG,
+                maxLevel: logLevels.FATAL,
             },
         },
-    });
+    })
+        .then(() => {
+            const logger = getLogger();
+            const debugFunctions = logger.debug('Debug message...');
+
+            Promise.allSettled(debugFunctions).then((res) => {
+                const resErr = res.filter((f) => f.status === 'rejected');
+
+                if (resErr.length > 0) {
+                    console.error('There is a error in debugger processing');
+                }
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 }
-
-const logger = getLogger();
-logger.warn('App start');
-
-```
+````
 
 # colored_console_layout
 

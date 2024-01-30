@@ -1,13 +1,12 @@
 {
     "name": "log4js-layouts",
-    "version": "1.0.0",
+    "version": "2.0.3",
     "description": "Layouts for log4js appender",
     "homepage": "https://github.com/forgetcz/log4js-layouts",
     "main": "./dist/index.js",
     "types": "./dist/types/types.d.ts",
     "files": [
-        "dist",
-        "src"
+        "dist"
     ],
     "scripts": {
         "lint": "eslint . --ext .js,.jsx,.ts",
@@ -32,19 +31,19 @@
         "date-fns-tz": "^2.0.0",
         "got": "^11.8.3",
         "lodash": "^4.17.21",
-        "log4js-node-next": "file:../log4js-promises"
+        "log4js-node-next": "^1.0.30"
     },
     "devDependencies": {
-        "@types/jest": "^29.5.7",
-        "@types/lodash": "^4.14.200",
-        "@types/node": "^20.8.10",
-        "@typescript-eslint/eslint-plugin": "^6.10.0",
-        "@typescript-eslint/parser": "^6.10.0",
-        "eslint": "^8.53.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-prettier": "^5.0.1",
-        "prettier": "^3.0.3",
-        "ts-jest": "^29.1.1",
-        "typescript": "^5.2.2"
+        "@types/jest": "^29.5.11",
+        "@types/lodash": "^4.14.202",
+        "@types/node": "^20.11.10",
+        "@typescript-eslint/eslint-plugin": "^6.19.1",
+        "@typescript-eslint/parser": "^6.19.1",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.2.4",
+        "ts-jest": "^29.1.2",
+        "typescript": "^5.3.3"
     }
 }
